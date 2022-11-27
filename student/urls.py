@@ -9,8 +9,7 @@ router= routers.DefaultRouter()
 router.register(r'student', StudentViewSet)
 urlpatterns = [    
     path('',include(router.urls)),
-    # path('demo', views.studentfunc)
-    # path('studentlogin/', views.studentLogin),
-    # path('getloggedinstudent/', views.getLoggedinstudent)
 ]
 
+
+# Here since in path we gave empty and included router.urls, the router will automaticaly set student since we registered student and finally we'll have this path: url/student/
