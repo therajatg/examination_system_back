@@ -25,14 +25,17 @@ class Question(models.Model):
     def __str__(self):
         return self.name   
 
-# class Score(models.Model):
-#     score_id=models.AutoField(primary_key=True)
-#     score=models.IntegerField(blank=False,unique=True)
-    # Student_id=models.ForeignKey(Student,on_delete=models.CASCADE,blank=False, null=True)
-    # Course_id=models.ForeignKey(Course,on_delete=models.CASCADE,blank=True, null=True)
+class Score(models.Model):
+    score_id=models.AutoField(primary_key=True, unique=True)
+    score=models.IntegerField(blank=False)
+    student=models.ForeignKey(Student,on_delete=models.CASCADE,blank=False)
+    exam=models.ForeignKey(Exam,on_delete=models.CASCADE,blank=False)
 
-    # def __int__(self):
-    #     return self.score
+    def __int__(self):
+        return self.score
+    
+    class Meta:
+        unique_together = ('student', 'exam')
 
 
 

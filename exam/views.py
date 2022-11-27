@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Exam, Question
-from .serializers import ExamSerializer, QuestionSerializer
+from .models import Exam, Question, Score
+from .serializers import ExamSerializer, QuestionSerializer, ScoreSerializer
 from rest_framework.decorators import api_view,renderer_classes
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -17,3 +17,7 @@ class ExamViewSet(viewsets.ModelViewSet):
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset= Question.objects.all()
     serializer_class=QuestionSerializer
+
+class ScoreViewSet(viewsets.ModelViewSet):
+    queryset= Score.objects.all()
+    serializer_class=ScoreSerializer

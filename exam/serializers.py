@@ -1,4 +1,4 @@
-from .models import Exam, Question
+from .models import Exam, Question, Score
 from rest_framework import serializers
 
 class ExamSerializer(serializers.ModelSerializer):
@@ -6,8 +6,18 @@ class ExamSerializer(serializers.ModelSerializer):
 		model=Exam
 		fields="__all__"
 
-
 class QuestionSerializer(serializers.ModelSerializer):
 	class Meta:
 		model=Question
 		fields="__all__"
+
+class ScoreSerializer(serializers.ModelSerializer):
+	class Meta:
+		model=Score
+		fields="__all__"
+
+
+
+
+
+# We can write logic in serializers. (If we want )
